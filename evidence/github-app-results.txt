@@ -1,0 +1,16 @@
+Actual GitHub Actions log excerpts; job 122421744778.
+Run: https://github.com/DARSH-git-hub/java-aws-devops-portfolio/actions/runs/40570110934
+2026-10-27T19:33:10.8233947Z Java build passed.
+2026-10-27T19:33:11.6687711Z test_exact_health_path (__main__.AppTests.test_exact_health_path) ... ok
+2026-10-27T19:33:11.6720588Z test_health (__main__.AppTests.test_health) ... ok
+2026-10-27T19:33:11.7096376Z test_invalid_port_exits (__main__.AppTests.test_invalid_port_exits) ... ok
+2026-10-27T19:33:11.7173597Z test_metrics_increase (__main__.AppTests.test_metrics_increase) ... ok
+2026-10-27T19:33:11.7190018Z test_reject_post (__main__.AppTests.test_reject_post) ... ok
+2026-10-27T19:33:11.9111288Z test_unhealthy_release (__main__.AppTests.test_unhealthy_release) ... ok
+2026-10-27T19:33:11.9127556Z test_unknown_path (__main__.AppTests.test_unknown_path) ... ok
+2026-10-27T19:33:11.9141821Z test_version (__main__.AppTests.test_version) ... ok
+2026-10-27T19:33:11.9216341Z Ran 8 tests in 1.026s
+2026-10-27T19:33:27.4164920Z Deployment healthy; prior container retained for rollback.
+2026-10-27T19:34:28.7065865Z Deployment failed; previous container restored when available.
+2026-10-27T19:34:29.7837842Z PASS: bad deployment rejected and original app recovered.
+2026-10-27T19:34:58.0579715Z Artifact download URL: https://github.com/DARSH-git-hub/java-aws-devops-portfolio/actions/runs/40570110934/artifacts/12763793645

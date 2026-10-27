@@ -4,6 +4,10 @@ A reproducible learning repository for a Java app, Docker packaging, CI checks a
 
 This newly generated starter includes a small demo Java service. It is not the source of Darsh's existing Java application and is not evidence of work completed in June–August 2026. Replace/adapt it, run it and explain your changes.
 
+## Verified checks
+
+[Passing CI run](https://github.com/DARSH-git-hub/java-aws-devops-portfolio/actions/runs/40570110934) — Java tests, Docker recovery, Trivy gate and Terraform validation.
+
 ## Start here — no AWS account
 Requirements: full JDK 17, Python 3, Bash; Docker only for container tests. Windows: use WSL or Git Bash with JDK/Python installed.
 ```bash
@@ -45,7 +49,7 @@ Review the script before running on a host with other containers.
 - Evidence instructions, actual assistant test results, upload guide and troubleshooting.
 
 ## Read before adding resume claims
-See [evidence status](evidence/STATUS.md) and [evidence checklist](docs/EVIDENCE_CHECKLIST.md). Docker, Terraform, Jenkins and Actions execution require separate successful runs. Having their configuration files is not proof they ran. No fabricated screenshots, cloud logs, certification or historic metrics are included.
+See [evidence status](evidence/STATUS.md) and [evidence checklist](docs/EVIDENCE_CHECKLIST.md). GitHub Actions has now verified Java tests, Docker deployment/recovery, the Trivy gate and Terraform init/validate. Jenkins and AWS deployment remain unverified. Having their configuration files is not proof they ran. No fabricated screenshots, cloud logs, certification or historic metrics are included.
 
 ## Guides
 - [Upload to GitHub and obtain the actual URL](docs/UPLOAD_TO_GITHUB.md)
