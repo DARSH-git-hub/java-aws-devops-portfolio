@@ -1,0 +1,56 @@
+name: Java DevOps portfolio CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  app-and-container:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Java integration tests
+        shell: bash
+        run: |
+          mkdir -p reports
+          set -o pipefail
+          bash scripts/test.sh 2>&1 | tee reports/java-tests.txt
+      - name: Docker deployment and failed-release recovery test
+        shell: bash
+        run: |
+          set -o pipefail
+          bash scripts/docker-demo.sh 2>&1 | tee reports/docker-recovery.txt
+      - name: Image vulnerability gate
+        uses: aquasecurity/trivy-action@v0.36.0
+        with:
+          image-ref: java-devops-demo:good
+          format: json
+          output: reports/trivy.json
+          severity: HIGH,CRITICAL
+          exit-code: '1'
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: app-evidence
+          path: reports/
+          retention-days: 7
+  terraform-validation:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: hashicorp/setup-terraform@v3
+      - run: terraform -chdir=infra init -backend=false
+      - run: terraform -chdir=infra validate -no-color
+# No AWS credentials, plan, apply, or cloud deployment occur in this workflow.

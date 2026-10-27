@@ -1,0 +1,17 @@
+Validation performed by the assistant in the preparation environment.
+Not a user-run or AWS deployment log.
+
+Java build passed.
+test_exact_health_path (__main__.AppTests.test_exact_health_path) ... ok
+test_health (__main__.AppTests.test_health) ... ok
+test_invalid_port_exits (__main__.AppTests.test_invalid_port_exits) ... ok
+test_metrics_increase (__main__.AppTests.test_metrics_increase) ... ok
+test_reject_post (__main__.AppTests.test_reject_post) ... ok
+test_unhealthy_release (__main__.AppTests.test_unhealthy_release) ... ok
+test_unknown_path (__main__.AppTests.test_unknown_path) ... ok
+test_version (__main__.AppTests.test_version) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.417s
+
+OK
