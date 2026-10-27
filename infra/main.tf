@@ -28,7 +28,8 @@ resource "aws_subnet" "lab" {
 resource "aws_internet_gateway" "lab" { vpc_id = aws_vpc.lab.id }
 resource "aws_route_table" "lab" {
   vpc_id = aws_vpc.lab.id
-  route { cidr_block = "0.0.0.0/0"
+  route {
+    cidr_block = "0.0.0.0/0"
     gateway_id = aws_internet_gateway.lab.id
   }
 }
@@ -40,7 +41,8 @@ resource "aws_route_table_association" "lab" {
 resource "aws_security_group" "lab" {
   name_prefix = "${var.lab_name}-"
   vpc_id = aws_vpc.lab.id
-  egress { from_port = 0
+  egress {
+    from_port = 0
     to_port = 0
     protocol = "-1"
     cidr_blocks = ["0.0.0.0/0"]
@@ -91,7 +93,8 @@ resource "aws_instance" "lab" {
   vpc_security_group_ids = [aws_security_group.lab.id]
   iam_instance_profile = aws_iam_instance_profile.lab.name
   metadata_options { http_tokens = "required" }
-  root_block_device { encrypted = true
+  root_block_device {
+    encrypted = true
     volume_size = 8
     volume_type = "gp3"
   }
